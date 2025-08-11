@@ -18,6 +18,10 @@ app.use(rateLimiter);
 
 app.use("/api/notes", notesRoutes);
 
+app.get("/", (req, res) => {
+    res.status(200).json({message: "Ok"})
+})
+
 connectDB().then(() => {
     app.listen(PORT, () => {
         console.log("Server started on PORT: 5001");
